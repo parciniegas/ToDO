@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices.ComTypes;
 using Ilse.Core.Context;
 using Ilse.Core.Results;
 using Ilse.Cqrs.Commands;
@@ -8,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.ToDo.Command;
 using ToDo.Domain.ToDo.Commands;
 
-namespace ToDo.Api.Endpoints.ToDo;
+namespace ToDo.Api.Endpoints.ToDo.Post;
 
 public class CreateToDoRequestHandler: IEndpoint
 {
@@ -25,8 +24,8 @@ public class CreateToDoRequestHandler: IEndpoint
         Conflict<ProblemDetails>>>
         HandleAsync(ILogger<CreateToDoRequestHandler> logger,
             IContextAccessor<CorrelationContext> correlationAccessor,
-            CreateToDoRequest request,
-            ICommandDispatcher commandDispatcher)
+            ICommandDispatcher commandDispatcher,
+            CreateToDoRequest request)
     {
         var result =
             await commandDispatcher.ExecAsync<AppCreateToDoCommand, OperationResult<CreateToDoCommandResponse>>(request.CreateToDoCommand());

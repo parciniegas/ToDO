@@ -8,8 +8,8 @@ public class ToDoItem(string title, string description)
     public DateTime CreatedAt { get; } = DateTime.Now;
     public DateTime? CompletedAt { get; private set; }
     public string? CompletedNote { get; private set; }
-    public bool IsCompleted { get; private set; } = false;
     
+    public bool IsCompleted { get; private set; } = false;
     public void MarkAsCompleted(string? note)
     {
         IsCompleted = true;

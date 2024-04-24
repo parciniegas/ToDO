@@ -1,6 +1,6 @@
 using ToDo.Application.ToDo.Command;
 
-namespace ToDo.Api.Endpoints.ToDo;
+namespace ToDo.Api.Endpoints.ToDo.Post;
 
 public record CreateToDoRequest(string Title, string Description)
 {

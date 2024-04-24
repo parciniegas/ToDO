@@ -11,7 +11,8 @@ public class AppCreateToDoCommandHandler(ICommandDispatcher commandDispatcher)
         HandleAsync(AppCreateToDoCommand command, CancellationToken cancellationToken = new CancellationToken())
     {
         var toDoCommand = command.CreateToDoCommand();
-        var result = await commandDispatcher.ExecAsync<CreateToDoCommand, OperationResult<CreateToDoCommandResponse>>(toDoCommand, cancellationToken);
+        var result = 
+            await commandDispatcher.ExecAsync<CreateToDoCommand, OperationResult<CreateToDoCommandResponse>>(toDoCommand, cancellationToken);
         return new AppCreateToDoCommandResponse(result.Value!.Id);
     }
 }
